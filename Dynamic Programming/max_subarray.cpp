@@ -33,16 +33,13 @@ Constraints:
 
 	int maxSubArray(vector<int>& nums) 
     {
-        int m1=INT_MIN,m2=INT_MIN;
+        int m=INT_MIN;
         int s=0;
         for(int i=0;i<nums.size();i++)
         {
-            s=max(s+nums[i],0);
-            m1=max(s,m1);
-            m2=max(m2,nums[i]);
+            s=max(s+nums[i],nums[i]);
+            m=max(s,m);
         }
-        if(m1==0)
-            return m2;
         return m1;
         
     }
