@@ -62,3 +62,34 @@ Constraints:
         }
         return ans;
     }
+
+
+
+
+    int getMaxLen(vector<int>& nums) 
+    { 
+        int n=nums.size();
+        int pos[n],neg[n];
+        pos[0]=(nums[0]>0)?1:0,neg[0]=(nums[0]<0)?1:0;
+        int ans=pos[0];
+        for(int i=1;i<nums.size();i++)
+        {
+            if(nums[i]==0)
+            {
+                pos[i]=0,neg[i]=0;
+            }
+            else if(nums[i]>0)
+            {
+                pos[i]=pos[i-1]+1;
+                neg[i]=(neg[i-1]==0)?0:neg[i-1]+1;
+            }
+            else
+            {
+                int temp=pos[i-1];
+                pos[i]=(neg[i-1]==0)? 0:neg[i-1]+1;
+                neg[i]=temp+1;       
+            }
+            ans=max(ans,pos[i]);
+        }
+        return ans;
+    }

@@ -45,3 +45,22 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
         }
         return res;
     }
+
+
+
+
+    int maxProduct(vector<int>& nums) 
+    {
+        int n=nums.size();
+        int res=nums[0],maxP[n],minP[n];
+        maxP[0] = nums[0], minP[0] = nums[0];
+        for (int i = 1; i < nums.size(); i++) 
+        {
+            if (nums[i] < 0)
+                swap(maxP[i-1], minP[i-1]);
+            maxP[i]= max(nums[i], maxP[i-1]* nums[i]);
+            minP[i]= min(nums[i], minP[i-1]* nums[i]);
+            res = max(res, maxP[i]);
+        }
+        return res;
+    }
