@@ -43,3 +43,20 @@ Constraints:
         return m1;
         
     }
+
+
+
+
+    int maxSubArray(vector<int>& nums) 
+    {
+        int n=nums.size();
+        int dp[n],m=nums[0];
+        dp[0]=nums[0];
+        for(int i=1;i<n;i++)
+        {
+            dp[i]=nums[i]+max(dp[i-1],0);
+            m=max(m,dp[i]);
+        }
+        return m;
+        
+    }

@@ -60,3 +60,21 @@ We can transfer this case to the first one.
 The maximum result equals to the total sum minus the minimum subarray sum.
 
     */
+
+
+    int maxSubarraySumCircular(vector<int>& nums) 
+    {
+        int n=nums.size();
+        int maxSum=nums[0],minSum=nums[0],total=nums[0],currMax[n],currMin[n];
+        currMax[0]=nums[0];
+        currMin[0]=nums[0];
+        for(int i=1;i<n;i++)
+        {
+            currMax[i]=nums[i]+max(currMax[i-1],0);
+            maxSum=max(maxSum,currMax[i]);
+            currMin[i]=nums[i]+min(currMin[i-1],0);
+            minSum=min(minSum,currMin[i]);
+            total+=nums[i];
+        }
+        return (maxSum>0)?max(maxSum,(total-minSum)):maxSum;
+    }
