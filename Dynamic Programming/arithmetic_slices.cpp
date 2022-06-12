@@ -77,3 +77,31 @@ Constraints:
         }
         return count;
     }
+
+    
+
+// DP Solution
+
+    int numberOfArithmeticSlices(vector<int>& nums) 
+    {
+        int n=nums.size();
+        if(n<3)
+            return 0;
+        int count=0;
+        int dp[n];dp[0]=0,dp[1]=0;
+        int prev_diff=nums[1]-nums[0];
+        for(int i=2;i<n;i++)
+        {
+            int diff=nums[i]-nums[i-1];
+                if(diff==prev_diff)
+                    dp[i]=1+dp[i-1];
+                else 
+                {
+                    prev_diff=diff;
+                    dp[i]=0;
+                }
+        }
+        for(int i=0;i<n;i++)
+            count+=dp[i];
+        return count;
+    }
