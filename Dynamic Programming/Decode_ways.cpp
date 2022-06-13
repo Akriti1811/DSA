@@ -68,7 +68,7 @@ s contains only digits and may contain leading zero(s).
 
 
 
-//DP Memoization Time Complexity:O(n) 
+//DP Memoization Time Complexity:O(n) Space Complexity:O(n)
 
         int decode(int i,string s,vector<int> &dp)
     {
@@ -95,7 +95,7 @@ s contains only digits and may contain leading zero(s).
 
 
 
-//DP Tabulation Time Complexity:O(n)
+//DP Tabulation Time Complexity:O(n) Space Complexity:O(n)
 
     int numDecodings(string s) 
     {
@@ -118,7 +118,7 @@ s contains only digits and may contain leading zero(s).
     }
     
 
-//DP  Time Complexity:O(1)
+//DP  Time Complexity:O(1) Space Complexity:O(1)
 
     int numDecodings(string s) 
     {
