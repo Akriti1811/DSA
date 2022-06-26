@@ -32,6 +32,7 @@ Constraints:
 */
 
 
+// Time Complexity: O(mn)   Space Complexity:O(mn)
 
     int uniquePaths(int m, int n) 
     {
@@ -44,6 +45,8 @@ Constraints:
         return dp[m - 1][n - 1];   
     }
 
+
+// Time Complexity: O(mn)   Space Complexity:O(n)
 
      int uniquePaths(int m, int n) 
     {
@@ -58,6 +61,7 @@ Constraints:
     }
 
 
+// Time Complexity: O(mn)   Space Complexity:O(1)
 
     int uniquePaths(int m, int n) 
     {
