@@ -151,3 +151,20 @@ Constraints:
         }
         return max(dp[n-1][0],dp[n-1][1]);   
     }
+
+
+
+// Time Complexity:O(n), Auxiliary Space:O(1)  DP (bottom up dp , tabulation)
+
+    int maxProfit(vector<int>& prices) 
+    {
+        if (prices.size() <= 1) return 0;
+        int maxM = -prices[0];
+        int gi = 0;
+        for (int i = 1; i < prices.size(); ++i) 
+        {
+            gi = max(gi, maxM + prices[i]);
+            maxM = max(gi - prices[i], maxM);
+        }
+        return gi;
+    }
